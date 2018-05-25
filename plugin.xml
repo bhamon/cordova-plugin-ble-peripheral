@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+  xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  id="cordova-plugin-ble-peripheral"
+  version="0.1.0"
+>
+  <name>BLE peripheral</name>
+  <description>Cordova BLE peripheral plugin</description>
+  <keywords>cordova,ble,peripheral</keywords>
+  <author>Benjamin HAMON</author>
+  <license>MIT</license>
+  <engines>
+    <engine name="cordova" version=">=5.0.0"/>
+    <engine name="android-api" version=">=21"/>
+  </engines>
+  <js-module src="www/blePeripheral.js" name="blePeripheral">
+    <clobbers target="window.ble.peripheral"/>
+  </js-module>
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="blePeripheralPlugin">
+        <param name="android-package" value="sh.hamon.ble.peripheral.Plugin"/>
+      </feature>
+    </config-file>
+    <source-file src="src/android/Plugin.java" target-dir="src/sh/hamon/ble/peripheral"/>
+    <source-file src="src/android/BeaconHelper.java" target-dir="src/sh/hamon/ble/peripheral"/>
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-feature android:name="android.hardware.bluetooth" android:required="true"/>
+      <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+      <uses-permission android:name="android.permission.BLUETOOTH"/>
+      <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    </config-file>
+  </platform>
+</plugin>

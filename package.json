@@ -1,0 +1,12 @@
+{
+  "name": "cordova-plugin-ble-peripheral",
+  "version": "1.0.0",
+  "description": "BLE peripheral cordova plugin.",
+  "main": "lib/index.js",
+  "author": "Benjamin HAMON <benjamin@hamon.sh>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:cryo/cordova-plugin-ble-peripheral.git"
+  }
+}
